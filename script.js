@@ -4,6 +4,14 @@ let userMove="";
 let compMove="";
 let res="";
 let win=0; let lose=0; let draw=0;
+let x = Math.random();
+    if(x>=0 && x<1/3){
+        compMove="rock";
+    } else if(x>=1/3 && x<2/3){
+        compMove="paper";
+    } else if(x>=2/3 && x<1){
+        compMove="scissor";
+    }
 
 function reset() {
     userMove="";
