@@ -105,8 +105,8 @@ function start() {
     }
 
     document.querySelector("#restart").onclick= function(){
-        start();
         reset();
+        start();
     }
 }
 
