@@ -48,11 +48,7 @@ function start() {
             win++;
         }
         document.querySelector("#res").innerText=`${res}`;
-        document.querySelector("#pl").innerHTML=`<button id="playbtn">Play</button>`;
-        document.querySelector("#pl").onclick= function() {start()};
-        document.addEventListener("keydown", function(event) {
-        if(event.key === "Enter") {start()}
-        });
+        setTimeout(start, 2500);
         document.querySelector("#win").innerText=`WINS: ${win}`;
         document.querySelector("#lose").innerText=`LOSE: ${lose}`;
         document.querySelector("#draw").innerText=`DRAW: ${draw}`;
@@ -77,11 +73,7 @@ function start() {
             win++;
         }
         document.querySelector("#res").innerText=`${res}`;
-        document.querySelector("#pl").innerHTML=`<button id="playbtn">Play</button>`;
-        document.querySelector("#pl").onclick= function() {start()};
-        document.addEventListener("keydown", function(event) {
-        if(event.key === "Enter") {start()}
-        });
+        setTimeout(start, 2500);
         document.querySelector("#win").innerText=`WINS: ${win}`;
         document.querySelector("#lose").innerText=`LOSE: ${lose}`;
         document.querySelector("#draw").innerText=`DRAW: ${draw}`;
@@ -105,11 +97,7 @@ function start() {
             win++;
         }
         document.querySelector("#res").innerText=`${res}`;
-        document.querySelector("#pl").innerHTML=`<button id="playbtn">Play</button>`;
-        document.querySelector("#pl").onclick= function() {start()};
-        document.addEventListener("keydown", function(event) {
-        if(event.key === "Enter") {start()}
-        });
+        setTimeout(start, 2500);
         document.querySelector("#win").innerText=`WINS: ${win}`;
         document.querySelector("#lose").innerText=`LOSE: ${lose}`;
         document.querySelector("#draw").innerText=`DRAW: ${draw}`;
