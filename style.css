@@ -36,8 +36,9 @@ h1 {
     text-align: center;
     font-family: roboto, Arial;
     font-size: 15px;
-    line-height: 24px;
-}
+    display: flex;
+    justify-content: space-between;
+    line-height: 50px;
 
 #res{
     color:white;
