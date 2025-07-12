@@ -8,7 +8,7 @@ let score={
     lose:0,
     draw:0
 }
-score=JSON.parse(localStorage.getItem('score'));
+score=JSON.parse(localStorage.getItem('score')) || {win:0, lose:0, draw:0};
 document.querySelector("#win").innerText=`WINS: ${score.win}`;
 document.querySelector("#lose").innerText=`LOSE: ${score.lose}`;
 document.querySelector("#draw").innerText=`DRAW: ${score.draw}`;
