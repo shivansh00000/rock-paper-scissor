@@ -3,7 +3,15 @@ let btns= document.querySelectorAll(".btns");
 let userMove="";
 let compMove="";
 let res="";
-let win=0; let lose=0; let draw=0;
+let score={
+    win:0,
+    lose:0,
+    draw:0
+}
+score=JSON.parse(localStorage.getItem('score'));
+document.querySelector("#win").innerText=`WINS: ${score.win}`;
+document.querySelector("#lose").innerText=`LOSE: ${score.lose}`;
+document.querySelector("#draw").innerText=`DRAW: ${score.draw}`;
 let x = Math.random();
     if(x>=0 && x<1/3){
         compMove="&#x270A;";
@@ -17,37 +25,39 @@ function reset() {
     userMove="";
     compMove="";
     res="";
-    win=0; lose=0; draw=0;
-    document.querySelector("#win").innerText=`WINS: ${win}`;
-    document.querySelector("#lose").innerText=`LOSE: ${lose}`;
-    document.querySelector("#draw").innerText=`DRAW: ${draw}`;
+    score.win=0; score.lose=0; score.draw=0;
+    document.querySelector("#win").innerText=`WINS: ${score.win}`;
+    document.querySelector("#lose").innerText=`LOSE: ${score.lose}`;
+    document.querySelector("#draw").innerText=`DRAW: ${score.draw}`;
     document.querySelector("#um").innerText=``;
     document.querySelector("#cm").innerText=``;
     document.querySelector("#res").innerText=``;
 }
+
 function gameLogics(d, w, l){
     userMove=d;
     document.querySelector("#um").innerHTML=`Your move : <br><span style="font-size:50px;"> ${userMove} </span>`;
     document.querySelector("#cm").innerHTML=`Computer move : <br><span style="font-size:50px;"> ${compMove} </span>`;
     if(compMove===d) {
         res="GAME IS DRAWN.";
-        draw++;
+        score.draw++;
     }
     else if(compMove===l) {
         res="YOU LOSE!";
-        lose++;
+        score.lose++;
     }
     else if(compMove===w) {
         res="YOU WON!";
-        win++;
+        score.win++;
     }
     document.querySelector("#res").innerText=`${res}`;
-    setTimeout(start, 3000);
-    document.querySelector("#win").innerText=`WINS: ${win}`;
-    document.querySelector("#lose").innerText=`LOSE: ${lose}`;
-    document.querySelector("#draw").innerText=`DRAW: ${draw}`;
-
+    document.querySelector("#win").innerText=`WINS: ${score.win}`;
+    document.querySelector("#lose").innerText=`LOSE: ${score.lose}`;
+    document.querySelector("#draw").innerText=`DRAW: ${score.draw}`;
+    localStorage.setItem('score' , JSON.stringify(score));
     btns.forEach(btn => btn.disabled = true);
+    setTimeout(start, 3000);
+    
 }
 
 function start() {
