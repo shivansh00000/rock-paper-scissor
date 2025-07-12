@@ -25,6 +25,30 @@ function reset() {
     document.querySelector("#cm").innerText=``;
     document.querySelector("#res").innerText=``;
 }
+function gameLogics(d, w, l){
+    userMove=d;
+    document.querySelector("#um").innerHTML=`Your move : <br><span style="font-size:50px;"> ${userMove} </span>`;
+    document.querySelector("#cm").innerHTML=`Computer move : <br><span style="font-size:50px;"> ${compMove} </span>`;
+    if(compMove===d) {
+        res="GAME IS DRAWN.";
+        draw++;
+    }
+    else if(compMove===l) {
+        res="YOU LOSE!";
+        lose++;
+    }
+    else if(compMove===w) {
+        res="YOU WON!";
+        win++;
+    }
+    document.querySelector("#res").innerText=`${res}`;
+    setTimeout(start, 3000);
+    document.querySelector("#win").innerText=`WINS: ${win}`;
+    document.querySelector("#lose").innerText=`LOSE: ${lose}`;
+    document.querySelector("#draw").innerText=`DRAW: ${draw}`;
+
+    btns.forEach(btn => btn.disabled = true);
+}
 
 function start() {
 
@@ -39,78 +63,11 @@ function start() {
 
     btns.forEach(btn => btn.disabled = false);
     
-    btns[0].onclick= function(){
-        userMove="&#x270A;";
-        document.querySelector("#um").innerHTML=`Your move : <br><span style="font-size:50px;"> ${userMove} </span>`;
-        document.querySelector("#cm").innerHTML=`Computer move : <br><span style="font-size:50px;"> ${compMove} </span>`;
-        if(compMove==="&#x270A;") {
-            res="GAME IS DRAWN.";
-            draw++;
-        }
-        else if(compMove==="&#x1F590;") {
-            res="YOU LOSE!";
-            lose++;
-        }
-        else if(compMove==="&#x270C;") {
-            res="YOU WON!";
-            win++;
-        }
-        document.querySelector("#res").innerText=`${res}`;
-        setTimeout(start, 3000);
-        document.querySelector("#win").innerText=`WINS: ${win}`;
-        document.querySelector("#lose").innerText=`LOSE: ${lose}`;
-        document.querySelector("#draw").innerText=`DRAW: ${draw}`;
+    btns[0].onclick= function(){ gameLogics("&#x270A;", "&#x1F590;","&#x270C;");}
 
-        btns.forEach(btn => btn.disabled = true);
-    }
+    btns[1].onclick= function(){ gameLogics("&#x1F590;","&#x270C;", "&#x270A;");}
 
-    btns[1].onclick= function(){
-        userMove="&#x1F590;";
-        document.querySelector("#um").innerHTML=`Your move : <br><span style="font-size:50px;"> ${userMove} </span>`;
-        document.querySelector("#cm").innerHTML=`Computer move : <br><span style="font-size:50px;"> ${compMove} </span>`;
-        if(compMove==="&#x1F590;") {
-            res="GAME IS DRAWN.";
-            draw++;
-        }
-        else if(compMove==="&#x270C;") {
-            res="YOU LOSE!";
-            lose++;
-        }
-        else if(compMove==="&#x270A;") {
-            res="YOU WON!";
-            win++;
-        }
-        document.querySelector("#res").innerText=`${res}`;
-        setTimeout(start, 3000);
-        document.querySelector("#win").innerText=`WINS: ${win}`;
-        document.querySelector("#lose").innerText=`LOSE: ${lose}`;
-        document.querySelector("#draw").innerText=`DRAW: ${draw}`;
-        btns.forEach(btn => btn.disabled = true);
-    }
-
-    btns[2].onclick= function(){
-        userMove="&#x270C;";
-        document.querySelector("#um").innerHTML=`Your move : <br><span style="font-size:50px;"> ${userMove} </span>`;
-        document.querySelector("#cm").innerHTML=`Computer move : <br><span style="font-size:50px;"> ${compMove} </span>`;
-        if(compMove==="&#x270C;") {
-            res="GAME IS DRAWN.";
-            draw++;
-        }
-        else if(compMove==="&#x270A;") {
-            res="YOU LOSE!";
-            lose++;
-        }
-        else if(compMove==="&#x1F590;") {
-            res="YOU WON!";
-            win++;
-        }
-        document.querySelector("#res").innerText=`${res}`;
-        setTimeout(start, 3000);
-        document.querySelector("#win").innerText=`WINS: ${win}`;
-        document.querySelector("#lose").innerText=`LOSE: ${lose}`;
-        document.querySelector("#draw").innerText=`DRAW: ${draw}`;
-        btns.forEach(btn => btn.disabled = true);
-    }
+    btns[2].onclick= function(){ gameLogics("&#x270C;", "&#x270A;", "&#x1F590;");}
 
     document.querySelector("#restart").onclick= function(){
         reset();
