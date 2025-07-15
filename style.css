@@ -32,16 +32,14 @@ h1 {
 
 #tempRes {
     margin:20px;
-    width:300px;
+    width: 300px;
     color:white;
+    text-align: center;
     font-family: roboto, Arial;
     font-size: 15px;
     display: flex;
     justify-content: space-between;
-}
-
-#um , #cm {
-    text-align: center;
+    line-height: 50px;
 }
 
 #res{
@@ -67,8 +65,16 @@ h1 {
     width:260px;
 }
 
-#restart {
+#restart,
+#auto-play {
     padding: 7px 15px;
     font-size: 14px;
     border-radius: 5px;
+    border:none;
+    margin: 0 20px;
+}
+
+.auto-play-on {
+    background-color: #353333;
+    color: white;
 }
